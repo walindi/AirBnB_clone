@@ -8,4 +8,6 @@ The complete web application will be composed by:
 - A database or files that store data (data = objects)
 - An API that provides a communication interface between the front-end and your data (retrieve, create, delete, update them)
 
+This repository implements only the command interpreter.
+
 ### The command interpreter
