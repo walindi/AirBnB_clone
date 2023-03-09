@@ -9,11 +9,11 @@ class FileStorage:
     deserializes JSON file to instances
 
     Private class attributes:
-        __filepath (str): path to the JSON file
+        __file_path (str): path to the JSON file
         __objects (dict): dictionary to store all objects by <class name>.id
     """
 
-    __filepath = "file.json"
+    __file_path = "file.json"
     __objects = {}
 
     def all(self):
@@ -26,3 +26,25 @@ class FileStorage:
 
     def save(self):
         """Serializes __objects to the JSON file(path: __file_path)"""
+        with open(self.__file_path, 'w') as f:
+            dic = {}
+            for k, v in self.__objects.items():
+                dic[k] = v.to_dict()
+
+            json.dump(dic, f)
+
+    def reload(self):
+        """Deserializes the json file to __objects,
+        only if the json file (__file_path) exists
+        """
+
+        try:
+            with open(self.__file_path, 'r') as f:
+                data = json.load(f)
+
+                for key, obj in data.items():
+                    self.__objects = {
+                            key: eval(obj["__class__"])(**obj)
+                            }
+        except FileNotFoundError:
+            return
