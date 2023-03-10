@@ -25,18 +25,18 @@ class BaseModel:
                     self.__dict__[k] = v
 
         else:
-            models.storage.new(self)
+            self.id = str(uuid4())
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()
 
-        self.id = str(uuid4())
-        self.created_at = datetime.now()
-        self.updated_at = datetime.now()
+            models.storage.new(self)
 
     def save(self):
         """Public instance method
         Updates the public intance attribute updated_at with
         the current datetime"""
 
-        self.updated_at = idatetime.now()
+        self.updated_at = datetime.now()
 
         models.storage.save()
 
