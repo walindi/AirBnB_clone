@@ -3,7 +3,7 @@
  */
 
 /* filters style */
-.filters {
+section.filters {
     background-color: white;
     height: 70px;
     width: 100%;
@@ -14,7 +14,7 @@
 }
 
 /* search button style */
-.filters button {
+section.filters button {
     font-size: 18px;
     background-color: #ff5a5f;
     color: #ffffff;
@@ -27,34 +27,33 @@
 }
 
 /* search button hover */
-.filters button:hover {
+section.filters button:hover {
     opacity: 90%;
 }
 
 /* locations and amenities style */
 
-.filters .locations,
-.filters .amenities {
+section.filters div.locations,
+section.filters div.amenities {
     height: 100%;
     width: 25%;
     margin-left: 40px;
 }
 
-.filters .locations h3,
-.filters .amenities h3 {
+section.filters div.locations h3,
+section.filters div.amenities h3 {
     font-weight: 600;
-    margin-bottom: 4px;
+    margin-bottom: 0px;
 }
 
-.filters .locations h4,
-.filters .amenities h4 {
+div.locations h4,
+div.amenities h4 {
     font-weight: 400;
     font-size: 14px;
-    margin-top: 3px;
-    margin-bottom: 16px;
+    margin: 4px auto;
 }
 
 /* border right only for first left filter */
-.filters .locations {
+section.filters div.locations {
     border-right: 1px solid #dddddd;
 }
